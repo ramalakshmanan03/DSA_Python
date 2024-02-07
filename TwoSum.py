@@ -1,17 +1,12 @@
 nums =[2,7,11,15]
-
 target = 9
+mt ={}
 
-def twoSum():
-   list = []
-   for x in range(len(nums)):
-      for y in range(len(nums)):
-          if x == y:
-            continue
-          elif nums[x] + nums[y] == target:
-                list.append(x)
-                list.append(y)
-                return list
-   return []
-
-print(twoSum())
+def twosum(nums,target,mt):
+    for x in range(len(nums)):
+       sub = target - nums[x]
+       if sub in mt:
+             return [mt[sub],x]
+       else:
+                mt[nums[x]] = x
+print(twosum(nums,target,mt))
